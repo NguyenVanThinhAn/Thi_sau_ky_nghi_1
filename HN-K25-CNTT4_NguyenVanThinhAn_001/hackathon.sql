@@ -1,5 +1,5 @@
 SET SQL_SAFE_UPDATES = 0;
-DROP DATABASE test;
+-- DROP DATABASE test; -- có thể test nhanh ctrl + shift + enter
 CREATE DATABASE test;
 
 USE test;
