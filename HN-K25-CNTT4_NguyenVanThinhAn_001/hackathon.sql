@@ -16,7 +16,7 @@ CREATE TABLE Matches(
     game_id varchar(5) not null,
     arena_name varchar(50) not null,
     start_time datetime not null,
-    entry_fee decimal(10,2) not null check(entry_fee >= 0),
+    entry_fee decimal(10,2) not null check(entry_fee >= 0), -- thêm rằng buộc >= 0 vì đề bài không yêu cầu sau khi tạo bảng mới thêm
     FOREIGN KEY (game_id) REFERENCES Games(game_id)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE Registrations(
     match_id varchar(5),
     player_id varchar(5),
     team_name varchar(50),
-    status varchar(20) check( status = 'Confirmed' or status = 'Pending'or status = 'Canceled') default "Pending",
+    status varchar(20) check( status = 'Confirmed' or status = 'Pending'or status = 'Canceled') default "Pending", -- thêm giá trị mặc định vì đề bài không yêu cầu sau khi tạo bảng mới thêm
     FOREIGN KEY (match_id) REFERENCES Matches(match_id),
     FOREIGN KEY (player_id) REFERENCES Players(player_id)
 );
